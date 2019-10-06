@@ -32,6 +32,14 @@ bot.on("message", async message => {
     var rnd5 = getRandomInt(3, 18);
     return message.channel.send("<@" + message.author.id + ">, here are your stats for the day. \nStrength: " + rnd0 + "\nDexterity: " + rnd1 + "\nConstitution: " + rnd2 + "\nIntelligence: " + rnd3 + "\nWisdom: " + rnd4 + "\nCharisma: " + rnd5);
   }
+
+  if (cmd === `${prefix}roll`)
+  {
+    let text = args.join(" ");
+    var imageNumber = getRandomInt(1,20);
+    message.channel.send ({files: ["./roll/dice" + imageNumber + ".png"]})
+  }
+
 });
 
 bot.login(botconfig.token);
