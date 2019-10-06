@@ -16,9 +16,21 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0]
   let args = messageArray.slice(1);
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
-  if (cmd === `${prefix}test`){
-    return message.channel.send("I am working");
+  if (cmd === `${prefix}stats`)
+  {
+    var rnd0 = getRandomInt(3, 18);
+    var rnd1 = getRandomInt(3, 18);
+    var rnd2 = getRandomInt(3, 18);
+    var rnd3 = getRandomInt(3, 18);
+    var rnd4 = getRandomInt(3, 18);
+    var rnd5 = getRandomInt(3, 18);
+    return message.channel.send("<@" + message.author.id + ">, here are your stats for the day. \nStrength: " + rnd0 + "\nDexterity: " + rnd1 + "\nConstitution: " + rnd2 + "\nIntelligence: " + rnd3 + "\nWisdom: " + rnd4 + "\nCharisma: " + rnd5);
   }
 });
 
