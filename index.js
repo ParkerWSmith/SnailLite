@@ -41,12 +41,45 @@ bot.on("message", async message => {
   }
 
   if (cmd === `${prefix}sb`)
+  {
     var fs = require('fs');
     var array = fs.readFileSync('./extra/sbquote.txt').toString().split("\n");
     for(i in array)
-  {
-    return message.channel.send(array[Math.floor(Math.random()*array.length)]);
+    {
+      return message.channel.send(array[Math.floor(Math.random()*array.length)]);
+    }
   }
+
+  if (cmd === `${prefix}advice`)
+  {
+    var fs = require('fs');
+    var array = fs.readFileSync('./extra/nut.txt').toString().split("\n");
+    for(i in array)
+    {
+      return message.channel.send(array[Math.floor(Math.random()*array.length)]);
+    }
+  }
+
+  if (cmd === `${prefix}quote`)
+  {
+    var fs = require('fs');
+    var array = fs.readFileSync('./extra/quote.txt').toString().split("\n");
+    for(i in array)
+    {
+      return message.channel.send(array[Math.floor(Math.random()*array.length)]);
+    }
+  }
+
+  if (cmd === `${prefix}justleave`)
+  {
+    message.channel.send ({files: ["./extra/leave.jpg"]})
+  }
+
+  if (cmd === `${prefix}life`)
+  {
+    message.channel.send ({files: ["./extra/life.gif"]})
+  }
+
 
 
 });
