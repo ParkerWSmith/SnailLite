@@ -20,6 +20,11 @@ bot.on("message", async message => {
   if (cmd === `${prefix}test`){
     return message.channel.send("I am working");
   }
+
+  if (cmd === `${prefix}stats`)
+  function getRndInteger(mim, max){
+    return message.channel.send(Context.Message.Author.Mention + ", here are your stats for the day. \nStrength: " + getRndInteger(3,18));
+  }
 });
 
 bot.login(botconfig.token);
