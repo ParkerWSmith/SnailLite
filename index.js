@@ -40,6 +40,15 @@ bot.on("message", async message => {
     message.channel.send ({files: ["./roll/dice" + imageNumber + ".png"]})
   }
 
+  if (cmd === `${prefix}sb`)
+    var fs = require('fs');
+    var array = fs.readFileSync('./extra/sbquote.txt').toString().split("\n");
+    for(i in array)
+  {
+    return message.channel.send(array[Math.floor(Math.random()*array.length)]);
+  }
+
+
 });
 
 bot.login(botconfig.token);
