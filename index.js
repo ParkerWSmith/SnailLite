@@ -4,8 +4,8 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
-  console.log('${bot.user.username} is online!')
-  bot.user.setActivity("Being Built")
+  console.log('$Snail Lite is online!')
+  bot.user.setActivity("Lost in the world.")
 });
 
 bot.on("message", async message => {
@@ -16,10 +16,19 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0]
   let args = messageArray.slice(1);
+  let arg = args.join(" ")
+  let ar = arg.split(',')
+  let random = Math.floor(Math.random() * args.length);
+  let answer = args[random]
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  if (cmd === `${prefix}choose`)
+  {
+    message.channel.send(answer);
   }
 
   if (cmd === `${prefix}stats`)
@@ -60,6 +69,15 @@ bot.on("message", async message => {
     }
   }
 
+  if (cmd === `${prefix}avatar`) {
+    const user = message.mentions.users.first() || message.author;
+    const avatarEmbed = new Discord.RichEmbed()
+        .setColor(0x333333)
+        .setAuthor(user.username)
+        .setImage(user.avatarURL);
+    message.channel.send(avatarEmbed);
+}
+
   if (cmd === `${prefix}quote`)
   {
     var fs = require('fs');
@@ -79,8 +97,6 @@ bot.on("message", async message => {
   {
     message.channel.send ({files: ["./extra/life.gif"]})
   }
-
-
 
 });
 
